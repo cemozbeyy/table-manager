@@ -1,0 +1,16 @@
+.tbl-main-table {
+    height: 80%;
+    border-radius: 6px;
+    background: linear-gradient(90deg, rgba(239, 242, 255, 1) 0%, rgba(232, 236, 255, 1) 100%);
+    width: 97%;
+    margin: 0px 20px;
+    min-height: 85vh;
+    &_container {
+        width: 90%;
+        margin: auto;
+        height: 80%;
+        background-color: pink;
+        &_top-side {
+        }
+    }
+}
