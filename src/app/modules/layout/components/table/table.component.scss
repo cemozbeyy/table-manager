@@ -9,8 +9,128 @@
         width: 90%;
         margin: auto;
         height: 80%;
-        background-color: pink;
+
         &_top-side {
+            display: flex;
+            padding-top: 30px;
+            &__search {
+                display: flex;
+                input {
+                    width: 340px;
+                    height: 42px;
+                    padding: 0px 30px;
+                    border-top-left-radius: 15px;
+                    border-bottom-left-radius: 15px;
+                    border: none;
+                }
+                div {
+                    display: flex;
+                    background-color: #744bfc;
+                    border-top-right-radius: 20px;
+                    border-bottom-right-radius: 20px;
+                    img {
+                        margin: auto;
+                        padding: 10px 13px;
+                    }
+                }
+            }
+            &__filter {
+                display: flex;
+                border-radius: 50%;
+                background-color: white;
+                margin-left: 0.625rem;
+                cursor: pointer;
+                div {
+                    margin: auto;
+                    padding: 10px 15px;
+                    img {
+                        display: flex;
+                    }
+                }
+            }
+            &__add-account {
+                display: flex;
+                flex: 1;
+                justify-content: flex-end;
+
+                button {
+                    display: flex;
+                    cursor: pointer;
+                    width: 175px;
+                    height: 42px;
+                    border-radius: 30px;
+                    color: white;
+                    border: none;
+                    background-color: #744bfc;
+                    p {
+                        margin-left: 10px;
+                    }
+                    span {
+                        display: flex;
+                        margin: auto;
+                    }
+                }
+            }
+        }
+        &_bottom-side {
+            margin-top: 10px;
+            &_table {
+                width: 100%;
+                border-collapse: collapse;
+                border: 1px solid #eaeaea;
+                border-top-left-radius: 15px;
+                border-top-right-radius: 15px;
+                border-bottom-left-radius: 7px;
+                border-bottom-right-radius: 7px;
+                background-color: white;
+                &__table-title {
+                    width: 100%;
+                    border-top-left-radius: 10px;
+                    border-top-right-radius: 10px;
+                    border-bottom: 1px solid #c4cee5;
+                    width: 100%;
+                    th {
+                        font-weight: 300;
+                        border-right: 1px solid #c4cee5;
+                        padding: 15px;
+                        p {
+                            margin: auto;
+                        }
+                        img {
+                            cursor: pointer;
+                        }
+                    }
+                    th:nth-child(1) {
+                        width: 26%;
+                    }
+                    th:nth-child(2) {
+                        width: 26%;
+                    }
+                    th:nth-child(3) {
+                        width: 48%;
+                        border-right: none;
+                    }
+                }
+                &__table-body {
+                    td {
+                        padding: 15px;
+                        a {
+                            text-decoration: none;
+                            cursor: pointer;
+                            color: black;
+                            margin-left: 10%;
+                        }
+                        border-right: 1px solid #c4cee5;
+                    }
+                    td:nth-child(3) {
+                        border-right: none;
+                    }
+                }
+            }
         }
     }
+}
+.aligment {
+    display: flex;
+    margin: auto;
 }
