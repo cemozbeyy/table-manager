@@ -7,7 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class TableComponent implements OnInit {
+    sortLink: boolean = false
+    sortName: boolean = false
     constructor() { }
 
     ngOnInit() { }
+    sortRow(rowName: string) {
+        if (rowName == "socialMediaName") {
+            this.sortLink = !this.sortLink
+        }
+        else {
+            this.sortName = !this.sortName
+
+        }
+    }
 }

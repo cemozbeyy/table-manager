@@ -22,13 +22,15 @@
                     <th>
                         <div class="aligment">
                             <p> Sosyal Medya Linki</p>
-                            <img src="../assets/images/arrow.svg" alt="">
+                            <img [ngClass]="{'isSorted':sortName}" (click)="sortRow('socialMediaLink')"
+                                src="../assets/images/arrow.svg" alt="">
                         </div>
                     </th>
                     <th>
                         <div class="aligment">
                             <p> Sosyal Medya Adı</p>
-                            <img src="../assets/images/arrow.svg" alt="">
+                            <img [ngClass]="{'isSorted':sortLink}" (click)="sortRow('socialMediaName')"
+                                src="../assets/images/arrow.svg" alt="">
                         </div>
                     </th>
                     <th>Açıklama</th>
