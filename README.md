@@ -25,3 +25,7 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## About the project
+
+The project was designed using pure HTML and SCSS. NGXS, which provides state management in Angular, was then used to add data to the table. Version 14 of Angular and version 18 of Node were used. The table component was made a separate component to add data and these components were separated into lazy modules. In this way, application performance was increased and loading time was reduced. As a result of these steps, the application was made more organized and manageable by providing data management over NGXS when data is added to the table.
