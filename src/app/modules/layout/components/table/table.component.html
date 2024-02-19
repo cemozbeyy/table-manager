@@ -17,7 +17,7 @@
                 </button>
             </div>
         </div>
-        <div class="tbl-main-table_container_bottom-side">
+        <div class="tbl-main-table_container_bottom-side" *ngIf="tableDatas$ | async as tableDatas">
             <table class="tbl-main-table_container_bottom-side_table">
                 <tr class="tbl-main-table_container_bottom-side_table__table-title">
                     <th>

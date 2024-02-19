@@ -9,7 +9,6 @@ import { ToastrModule, ToastrService } from 'ngx-toastr';
 
 
 
-
 const COMPONENTS = [
     LayoutComponent,
     HeaderComponent,
@@ -27,6 +26,8 @@ const COMPONENTS = [
             positionClass: 'toast-bottom-right',
             preventDuplicates: true,
         }),
+
+
     ],
     exports: [],
     declarations: [...COMPONENTS],

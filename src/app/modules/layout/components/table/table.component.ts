@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { Select, Store } from '@ngxs/store';
 import { ToastrService } from 'ngx-toastr';
+import { Observable } from 'rxjs';
 import { TableModel } from 'src/app/core/models/table-data';
+import { AddTableData, TableState } from 'src/app/core/models/table.state';
 
 
 @Component({
@@ -11,14 +14,15 @@ import { TableModel } from 'src/app/core/models/table-data';
 })
 
 export class TableComponent implements OnInit {
+    // Table state,model ve data akışı değişkeni
+    @Select(TableState.tableDatas) tableDatas$: Observable<TableModel[]> | undefined;
+    //
+
     // For arrow link
     sortLink: boolean = false
     sortName: boolean = false
     //
 
-    // Table Data Model
-    tableDatas?: TableModel[] = []
-    //
 
     // Dialog open status
     isDialogOpen: boolean = false;
@@ -31,13 +35,14 @@ export class TableComponent implements OnInit {
     explanation: string = '';
     //
 
-    constructor(private toastrService: ToastrService) {
+    constructor(private store: Store, private toastrService: ToastrService) {
         let staticData: TableModel = {
             soicalMediaLink: "instagram.com/mobilerast/",
             socialMediaName: "instagram",
             explanation: "We'll help you to finish your development project successfully."
         }
-        this.tableDatas?.push(staticData)
+        this.store.dispatch(new AddTableData(staticData));
+
     }
 
     ngOnInit() {
@@ -49,7 +54,8 @@ export class TableComponent implements OnInit {
             socialMediaName: this.socialMediaName,
             explanation: this.explanation
         }
-        this.tableDatas?.push(pushData)
+        this.store.dispatch(new AddTableData(pushData));
+
         this.socialMediaLink = ""
         this.socialMediaName = ""
         this.explanation = ""
@@ -64,12 +70,21 @@ export class TableComponent implements OnInit {
     }
 
     sortRow(rowName: string) {
-        if (rowName == "socialMediaName") {
-            this.sortLink = !this.sortLink
-        }
-        else {
-            this.sortName = !this.sortName
-
+        if (rowName === "socialMediaName") {
+            this.sortLink = !this.sortLink;
+            this.tableDatas$?.subscribe(datas => {
+                datas = datas.sort((a, b) => {
+                    return this.sortLink ? a.socialMediaName.localeCompare(b.socialMediaName) : b.socialMediaName.localeCompare(a.socialMediaName);
+                });
+            });
+        } else {
+            this.sortName = !this.sortName;
+            this.tableDatas$?.subscribe(datas => {
+                datas = datas.sort((a, b) => {
+                    return this.sortName ? a.soicalMediaLink.localeCompare(b.soicalMediaLink) : b.soicalMediaLink.localeCompare(a.soicalMediaLink);
+                });
+            });
         }
     }
+
 }
