@@ -1,0 +1,9 @@
+<div class="dialog-container" [@dialogAnimation]="isOpen ? 'open' : 'closed'">
+    <div id="myDialog">
+        <button (click)="closeDialog()"><img src="../assets/images/close.svg" alt=""></button>
+        <div class="dialog-content">
+            <ng-content></ng-content>
+
+        </div>
+    </div>
+</div>

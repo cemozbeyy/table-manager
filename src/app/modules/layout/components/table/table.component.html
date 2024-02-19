@@ -1,6 +1,7 @@
 <div class="tbl-main-table">
     <div class="tbl-main-table_container">
         <div class="tbl-main-table_container_top-side">
+
             <div class="tbl-main-table_container_top-side__search">
                 <input type="text" placeholder="Search objects...">
                 <div><img src="../assets/images/search.svg" alt=""></div>
@@ -9,7 +10,7 @@
                 <div><img src="../assets/images/filter.svg" alt=""></div>
             </div>
             <div class="tbl-main-table_container_top-side__add-account">
-                <button>
+                <button (click)="openDialog()">
                     <span> <img src="../assets/images/plus.svg" alt="">
                         <p> Yeni Hesap Ekle</p>
                     </span>
@@ -35,19 +36,46 @@
                     </th>
                     <th>Açıklama</th>
                 </tr>
-                <tr class="tbl-main-table_container_bottom-side_table__table-body">
+                <tr *ngFor="let item of tableDatas" class="tbl-main-table_container_bottom-side_table__table-body">
                     <td>
-                        <a href=""> test </a>
-
+                        <a href=""> {{item.soicalMediaLink}} </a>
                     </td>
                     <td>
-                        <a href=""> test</a>
+                        {{item.socialMediaName}}
                     </td>
                     <td>
-                        <a href=""> test</a>
+                        {{item.explanation}}
                     </td>
                 </tr>
             </table>
         </div>
     </div>
+
 </div>
+<tbl-add-dialog [isOpen]="isDialogOpen" (onClose)="closeDialog()">
+    <!-- add-dialog.component.html -->
+    <div class="tbl-add-dialog">
+        <form (ngSubmit)="submitForm()">
+            <div class="tbl-add-inputs">
+                <div>
+                    <p>Sosyal Medya Linki</p>
+                    <input type="text" [(ngModel)]="socialMediaLink" name="socialMediaLink">
+                </div>
+                <div>
+                    <p>Sosyal Medya Adı</p>
+                    <input type="text" [(ngModel)]="socialMediaName" name="socialMediaName">
+                </div>
+                <div>
+                    <p>Açıklama</p>
+                    <input type="text" [(ngModel)]="explanation" name="explanation">
+                </div>
+            </div>
+            <div class="tbl-add-buttons">
+                <button type="button" (click)="closeDialog()">Vazgeç</button>
+                <button type="submit">Kaydet</button>
+            </div>
+        </form>
+    </div>
+
+
+</tbl-add-dialog>

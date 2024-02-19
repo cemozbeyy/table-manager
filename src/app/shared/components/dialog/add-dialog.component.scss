@@ -1,0 +1,37 @@
+.dialog-container {
+  position: fixed;
+  top: 25%;
+  left: 39%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  padding: 50px 20px;
+  z-index: 9999;
+  button {
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+}
+@media screen and (max-width: 1890px) {
+  .dialog-container {
+    left: 37%;
+  }
+}
+@media screen and (max-width: 1820px) {
+  .dialog-container {
+    left: 36%;
+  }
+}
+@media screen and (max-width: 1760px) {
+  .dialog-container {
+    left: 35%;
+  }
+}
+.dialog-content {
+  text-align: center;
+}

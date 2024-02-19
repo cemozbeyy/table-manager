@@ -137,3 +137,53 @@
 .isSorted {
     rotate: 180deg;
 }
+.tbl-add-dialog {
+    min-width: 28.125rem;
+    height: 20.625rem;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    display: flex;
+    .tbl-add-inputs {
+        margin-top: 1.25rem;
+        width: 100%;
+        div {
+            width: 90%;
+
+            margin: auto auto 1.25rem auto;
+            p {
+                text-align: left;
+                margin: 0px 0px 10px 10px;
+                font-weight: 500;
+                color: #06163a;
+            }
+            input {
+                width: 94%;
+                height: 45px;
+                padding: 0px 20px;
+                border-radius: 30px;
+                border: 1px solid #d9d9d9;
+            }
+        }
+    }
+    .tbl-add-buttons {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 20px;
+        button {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 40px;
+            &:nth-child(1) {
+                background-color: #f5f7ff;
+                color: #744bfc;
+                margin-right: 0.625rem;
+            }
+            &:nth-child(2) {
+                background-color: #744bfc;
+                color: #f5f7ff;
+                margin-right: 0.9375rem;
+            }
+        }
+    }
+}
